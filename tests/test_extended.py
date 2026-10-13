@@ -17,4 +17,4 @@ def test_summarize_empty():
 def test_analyze_endpoint_one_point():
     response = client.post("/analyze", json={"points": [{"timestamp": "t", "device_id": "d", "power_kw": 5}]})
     assert response.status_code == 200
-    assert response.json() == {"count": 1}
+    assert response.json()["summary"]["count"] == 1
